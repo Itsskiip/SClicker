@@ -5,20 +5,24 @@ SetWorkingDir %A_ScriptDir%
 #SingleInstance Force
 #MaxThreadsPerHotkey 2
 SetBatchLines -1
+CoordMode Mouse
 
-WaitTime := 100 ;How long the mouse has to be stationary for before a click is registered in miliseconds
-PollingTime := 10 ;How often the script checks for mouse movement in miliseconds
+IniRead WaitTime, SClicker.ini, Settings, WaitTime
+IniRead PollingTime, SClicker.ini, Settings, PollingTime
+IniRead Hkey, SClicker.ini, Settings, Hotkey
 
+Hotkey %Hkey%, run
 Toggle := False
 
-F10:: ;The hotkey to toggle the script
+return
+
+run:
 ClickedAlready := True
 Toggle := !Toggle
 Loop {
 	If not Toggle
 		break
 	
-
 	if (!MouseMoved(PollingTime)){
 		if (!ClickedAlready and !MouseMoved(WaitTime - PollingTime)){
 			ClickedAlready := True
