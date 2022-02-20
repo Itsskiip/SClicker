@@ -19,6 +19,13 @@ return
 run:
 ClickedAlready := True
 Toggle := !Toggle
+
+if Toggle
+	Menu, Tray, Icon, Green.ico
+else {
+	Menu, Tray, Icon, Red.ico
+	return
+}
 Loop {
 	If not Toggle
 		break
