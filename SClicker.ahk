@@ -13,6 +13,7 @@ IniRead Hkey, SClicker.ini, Settings, Hotkey
 
 Hotkey %Hkey%, run
 Toggle := False
+Menu, Tray, Icon, Red.ico
 
 return
 
